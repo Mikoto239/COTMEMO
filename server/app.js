@@ -12,7 +12,7 @@ const cookieparser = require('cookie-parser');
 const errorhandler = require('./middleware/error');
 const path = require('path');
 
-mongoose.connect(process.env.Database, {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
