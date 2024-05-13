@@ -11,7 +11,7 @@ const Grid = require('gridfs-stream'); // Import gridfs-stream
 const path = require('path'); // Import path module
 const { MongoClient } = require('mongodb');
 
-const mongouri = process.env.Database;
+const mongouri = process.env.MONGO_URL;
 const conn = mongoose.createConnection(mongouri);
 let gfs;
 
