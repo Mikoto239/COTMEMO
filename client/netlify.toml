@@ -3,6 +3,6 @@
   publish = "build"
 
 [[redirects]]
-  from = "/*"
+  from = "/"
   to = "App.jsx"
   status = 200
