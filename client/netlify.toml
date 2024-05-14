@@ -4,5 +4,5 @@
 
 [[redirects]]
   from = "/*"
-  to = "/login"
+  to = "/src/pages/login"
   status = 200
