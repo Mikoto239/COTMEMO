@@ -5,7 +5,7 @@ import HeaderDashboard from '../../components/headerdashboard';
 import Footer from '../../components/footer';
 import { Link } from 'react-router-dom';
 
-const SecretaryReport = () => {
+const UserReport = () => {
   const [activeMenuItem, setActiveMenuItem] = useState('Report List');
   const [selectedMonth, setSelectedMonth] = useState((new Date().getMonth() + 1).toString().padStart(2, '0'));
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear()); // Default year
@@ -86,9 +86,9 @@ const SecretaryReport = () => {
     return new Date(date).getDate();
   };
 
-  useEffect(() => {
+ useEffect(() => {
     handleDate(selectedMonth, selectedYear);
-  }, [selectedMonth, selectedYear]);
+}, [selectedMonth, selectedYear, handleDate]);
 
   return (
     <>
@@ -217,4 +217,4 @@ const SecretaryReport = () => {
   );
 };
 
-export default SecretaryReport;
+export default UserReport;
