@@ -4,5 +4,5 @@
 
 [[redirects]]
   from = "/*"
-  to = "/src/pages/login"
+  to = "App"
   status = 200
