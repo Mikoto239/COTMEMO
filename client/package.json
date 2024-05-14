@@ -8,7 +8,6 @@
     "@fullcalendar/interaction": "^6.1.9",
     "@fullcalendar/react": "^6.1.9",
     "@fullcalendar/timegrid": "^6.1.9",
-      "caniuse-lite": "^1.0.0",
     "@react-oauth/google": "^0.12.1",
     "@react-pdf/renderer": "^3.1.14",
     "@supabase/auth-helpers-react": "^0.4.2",
@@ -54,7 +53,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"",
+    "build": "CI= npm run eslint && react-scripts build",
     "eslint": "eslint",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
