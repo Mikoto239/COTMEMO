@@ -36,7 +36,7 @@ app.use(cookieparser());
 
 // CORS CONFIGURATION
 const corsOptions = {
-  origin: 'https://cotmemo.vercel.app', // Replace with your client's URL
+  origin: 'https://cotmemo.onrender.com', // Replace with your client's URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204
