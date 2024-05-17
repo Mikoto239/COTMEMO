@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 'https://cotmemo.vercel.app' || 5000;
+const port = process.env.PORT || 5000;
 require('dotenv').config();
 const mongoose = require('mongoose');
 const Authroute = require('./routes/auth');
