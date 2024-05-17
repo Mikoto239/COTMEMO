@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 'https://cotmemo.vercel.app' || 5000;
 require('dotenv').config();
 const mongoose = require('mongoose');
 const Authroute = require('./routes/auth');
@@ -26,20 +26,28 @@ mongoose.connect(process.env.MONGO_URL, {
   });
 
 app.get('/', (req, res) => {
-  res.send('Hello, World!');
+  res.send('Hello, asdWorld!');
 });
 
 // MIDDLEWARE
 app.use(morgan('dev'));
 app.use(bodyparser.json());
 app.use(cookieparser());
-app.use(cors());
+
+// CORS CONFIGURATION
+const corsOptions = {
+  origin: 'https://cotmemo.vercel.app', // Replace with your client's URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204
+};
+app.use(cors(corsOptions));
 
 // Serve static files
 app.use('/typememo', express.static('typememo'));
 
 // ROUTES MIDDLEWARE
-app.use("/api", Authroute);
+app.use('/api', Authroute);
 app.use('/api', Memoroute);
 
 // ERRORHANDLER MIDDLEWARE
