@@ -26,28 +26,20 @@ mongoose.connect(process.env.MONGO_URL, {
   });
 
 app.get('/', (req, res) => {
-  res.send('Hello, asdWorld!');
+  res.send('Hello, World!');
 });
 
 // MIDDLEWARE
 app.use(morgan('dev'));
 app.use(bodyparser.json());
 app.use(cookieparser());
-
-// CORS CONFIGURATION
-const corsOptions = {
-  origin: 'https://cotmemo.onrender.com', // Replace with your client's URL
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Serve static files
 app.use('/typememo', express.static('typememo'));
 
 // ROUTES MIDDLEWARE
-app.use('/api', Authroute);
+app.use("/api", Authroute);
 app.use('/api', Memoroute);
 
 // ERRORHANDLER MIDDLEWARE
