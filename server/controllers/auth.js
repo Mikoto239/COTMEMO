@@ -8,15 +8,6 @@ const { google } = require('googleapis');
 const jwt = require('jsonwebtoken');
 const CalendarEvent = require('../models/calendarevent')
 
-const User = require('../models/user');
-const Code = require('../models/code');
-const ErrorRespond = require('../utils/errorResponds');
-const { OAuth2Client } = require('google-auth-library');
-const client = new OAuth2Client("373547344231-ft1oo9dvva0qkbvu4aqhv8f4f82dunbu.apps.googleusercontent.com");
-const nodemailer = require('nodemailer');
-const { google } = require('googleapis');
-const jwt = require('jsonwebtoken');
-const CalendarEvent = require('../models/calendarevent')
 
 exports.signup = async (req, res, next) => {
   const { email, role, token } = req.body;
