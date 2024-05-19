@@ -104,7 +104,6 @@ exports.createddetails = async (req, res, next) => {
 };
 
 
-
 exports.uploads = (req, res, next) => {
   try {
     upload.single('file')(req, res, async (err) => {
@@ -118,6 +117,12 @@ exports.uploads = (req, res, next) => {
       }
 
       const file = req.file;
+
+      // Check if the uploaded file is a PDF
+      if (file.mimetype !== 'application/pdf') {
+        return res.status(400).json({ success: false, error: 'Only PDF files are allowed.' });
+      }
+
       console.log(file); 
 
       const sender = req.body.sender;
@@ -126,7 +131,7 @@ exports.uploads = (req, res, next) => {
       const recipients = JSON.parse(req.body.recipients);
       const title = req.body.title;
 
-      if (!sender || !senderEmail) { // Fixed variable name, changed senderName to sender
+      if (!sender || !senderEmail) {
         return res.status(400).json({ success: false, error: 'Sender email and name are required.' });
       }
 
@@ -155,8 +160,6 @@ exports.uploads = (req, res, next) => {
     res.status(500).json({ success: false, error: 'Failed to upload file.' });
   }
 };
-
-
 
 
 
